@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Mapping</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.avif" alt="LOGO">
+        </div>
+        <div class="sign">
+            <img src="https://lms.nmamit.in/pluginfile.php/1/theme_academi/logo/1758692846/nitte-nmamit-logowithbanground_1.png"
+                width="300px" alt="">
+        </div>
+    </header>
+    <nav class="navigation-bar">
+        <a href="index.html">Home</a>
+        
+    </nav>
+        <center>
+        <main class="signin-container">
+            <form action="home.html">
+                <div class="signin-box">
+                    <h2>Sign Up</h2>
+                    <form action="#" method="post">
+                        <div class="input-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="password">Create Password</label>
+                            <input type="password" id="password" name="password" placeholder="Password must be more than 8 character" required>
+                        </div>
+
+                        <button type="submit" class="btn">Sign up</button>
+
+                        <p class="signup-link">Already have an account? <a href="signin.html">Sign In</a></p>
+                    </form>
+                </div>
+            </form>
+        </main>
+    </center>
+    <script src="signup-validation.js"></script>
+</body>
+</html>
