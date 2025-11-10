@@ -1,13 +1,9 @@
-// signin-validation.js
-// Real-time validation for your existing Sign In page WITHOUT editing the HTML structure.
 
 document.addEventListener("DOMContentLoaded", () => {
   // Grab inputs by their existing IDs
   const email = document.getElementById("email");
   const password = document.getElementById("password");
 
-  // Find the inner form (since your HTML has a nested form)
-  // This targets the form that actually contains the inputs.
   const innerForm = email?.form || document.querySelector(".signin-container form form") || document.querySelector(".signin-container form");
 
   // Find the submit button inside that inner form
@@ -16,10 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Ensure form exists
   if (!innerForm || !email || !password || !submitBtn) return;
 
-  // Turn off native popup validation (we’ll show our own messages)
   innerForm.setAttribute("novalidate", "");
 
-  // --- Helpers to create and manage feedback elements (no HTML edits needed) ---
   function makeFeedback(afterEl, id) {
     let span = document.createElement("span");
     span.id = id;
@@ -28,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     span.style.fontSize = "0.9rem";
     span.style.marginTop = "4px";
     span.style.minHeight = "1em";
-    // start empty + neutral
+
     span.textContent = "";
     afterEl.insertAdjacentElement("afterend", span);
     return span;
@@ -100,8 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateSubmitState() {
-    const ok = validateEmail(false) & validatePassword(false); // single-pass booleans
-    // Enable/disable visually (no CSS required)
+    const ok = validateEmail(false) & validatePassword(false);
+    
     submitBtn.disabled = !ok;
     submitBtn.style.opacity = ok ? "1" : "0.6";
     submitBtn.style.cursor = ok ? "pointer" : "not-allowed";

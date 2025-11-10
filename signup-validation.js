@@ -1,12 +1,9 @@
-// signup-validation.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Get inputs by existing IDs
   const nameInput = document.getElementById("name");
   const email = document.getElementById("email");
   const password = document.getElementById("password");
 
-  // Find the inner form that actually wraps the inputs (your HTML has nested forms)
   const innerForm =
     nameInput?.form ||
     document.querySelector(".signin-container form form") ||
@@ -19,10 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!innerForm || !nameInput || !email || !password || !submitBtn) return;
 
-  // Turn off default browser popups; we’ll show our own messages
   innerForm.setAttribute("novalidate", "");
 
-  // --- Feedback element factory (no HTML edits needed) ---
   function makeFeedback(afterEl, id) {
     let span = document.createElement("span");
     span.id = id;
@@ -40,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailFeedback = makeFeedback(email, "emailFeedback");
   const passwordFeedback = makeFeedback(password, "passwordFeedback");
 
-  // --- UI helpers ---
   function setOK(el, span, msg) {
     el.style.outline = "2px solid #2a9d8f";
     span.style.color = "#2a9d8f";
@@ -184,12 +178,5 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Please fix the highlighted fields before submitting.");
       return;
     }
-
-    // Let the form submit naturally.
-    // If your inner form uses action="#" and you want to navigate to index.html
-    // without editing HTML, uncomment below:
-    //
-    // e.preventDefault();
-    // window.location.href = "index.html";
   });
 });
